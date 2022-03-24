@@ -1,0 +1,23 @@
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 2rem 2rem 0rem;
+
+    .title {
+        cursor: pointer;
+        max-width: fit-content;
+        font-size: 2.5rem;
+        color: #FF1E56;
+        
+        .shows-title {
+            color: #FFAC41;
+        }
+    }
+}
+
+@media screen and (max-width: 880px) {
+    .title {
+        text-align: center;
+    }
+  }
