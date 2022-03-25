@@ -3,7 +3,10 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
-    transition: opacity 0.3s linear 2s; 
+    transition: opacity 0.3s linear 2s;
+    opacity: 0;
+    transform: translateY(10%);
+    animation: fade 500ms ease-in-out forwards;
 
     .show-card {
         cursor: pointer;
@@ -46,3 +49,10 @@
     }
 }
 
+
+@keyframes fade {
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

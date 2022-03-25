@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Shows } from "../../components/Shows/Shows";
 import { IShow } from "../../types/interfaces/interfaces";
+import { Loader } from "../../components/Loader/Loader";
 
 
 export const SearchPage = () => {
@@ -25,7 +26,7 @@ export const SearchPage = () => {
     }, [params.search])
 
     
-  return isLoading ? <h1>Loading...</h1> : (
+  return isLoading ? <Loader /> : (
       <Shows shows={shows} />
   )
 }

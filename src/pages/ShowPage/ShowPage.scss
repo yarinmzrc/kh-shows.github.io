@@ -1,6 +1,9 @@
 .show-wrapper {
     display: flex;
     margin-top: 6rem;
+    opacity: 0;
+    transform: translateY(20%);
+    animation: fade 500ms ease-in-out forwards;
 
     .show-image {
         height: 30rem;
@@ -53,4 +56,11 @@
         }
     }
 
+}
+
+@keyframes fade {
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

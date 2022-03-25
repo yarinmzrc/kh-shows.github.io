@@ -6,6 +6,7 @@ import axios from "axios";
 import { IShow } from "../../types/interfaces/interfaces";
 
 import './ShowPage.scss';
+import { Loader } from "../../components/Loader/Loader";
 
 
 export const ShowPage = () => {
@@ -27,9 +28,9 @@ export const ShowPage = () => {
         fetchData();
     }, [params.show])
 
-  return loading ? <h1>Loading...</h1> : (
+  return loading ? <Loader /> : (
     <div className="show-wrapper">
-        <img className="show-image" src={show?.image.medium} alt={show?.name} />
+        <img className="show-image" src={show?.image?.medium} alt={show?.name} />
         <div className="show-content">
             <div className="title">
             <h1>{show?.name}</h1> <span className="show-rating">{show?.rating.average}</span>
