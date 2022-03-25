@@ -1,13 +1,15 @@
-.shows-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    transition: opacity 0.3s linear 2s;
+.page-wrapper {
     opacity: 0;
     transform: translateY(10%);
     animation: fade 500ms ease-in-out forwards;
-
+    
+    .shows-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        transition: opacity 0.3s linear 2s;
+    
     .show-card {
         cursor: pointer;
         display: flex;
@@ -16,14 +18,14 @@
         margin-bottom: 1rem;
         width: 13rem;
         transition: all .2s ease-in-out; 
-
+        
         .show-image {
             max-width: 100%;
         }
-
+        
         .show-content {
             padding: 1rem;
-
+            
             .show-content-up {
                 display: flex;
                 justify-content: space-between;
@@ -33,22 +35,34 @@
             .show-rating-good {
                 color: rgb(30, 155, 30);
             }
-
+            
             .show-rating-medium {
                 color: orange;
             }
-
+            
             .show-rating-bad {
                 color: rgb(184, 31, 31);
             }
         }
     }
-
+    
     .show-card:hover{
         transform: scale(1.05);
     }
 }
 
+}
+@keyframes paginationFade {
+    0% {
+      opacity: 0;
+      transform: translateY(10%);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: translate(0);
+    }
+  }
 
 @keyframes fade {
     100% {

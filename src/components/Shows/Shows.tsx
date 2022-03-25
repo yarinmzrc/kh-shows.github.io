@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { Pagination } from "../Pagination/Pagination";
@@ -12,6 +12,7 @@ export const Shows: FC<IShows> = ({shows}) => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const [showsPerPage] = useState(28);
+  let currentPageRef = useRef<HTMLDivElement | any>(null);
 
   const indexOfLastShow = currentPage * showsPerPage;
   const indexOfFirstShow = indexOfLastShow - showsPerPage;
@@ -22,12 +23,17 @@ export const Shows: FC<IShows> = ({shows}) => {
   }
 
   const paginate = (pageNumber: number) => {
+    currentPageRef.current.style.animation = "paginationFade .5s forwards";
     setCurrentPage(pageNumber);
   }
 
   return ( 
     <div className="page-wrapper">
-    <div className="shows-wrapper">
+    <div className="shows-wrapper" ref={currentPageRef} onAnimationEnd={() => {
+          if (currentPageRef.current) {
+            currentPageRef.current.style.animation = "";
+          }
+        }}>
       {currentShows?.map((show: IShow) => {
         return (
           <div onClick={() => handleClick(show.id)} className="show-card" key={show.id}>
