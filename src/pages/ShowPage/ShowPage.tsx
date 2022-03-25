@@ -3,10 +3,11 @@ import { useParams } from "react-router-dom";
 
 import axios from "axios";
 
+import { Loader } from "../../components/Loader/Loader";
+
 import { IShow } from "../../types/interfaces/interfaces";
 
 import './ShowPage.scss';
-import { Loader } from "../../components/Loader/Loader";
 
 
 export const ShowPage = () => {
@@ -30,7 +31,7 @@ export const ShowPage = () => {
 
   return loading ? <Loader /> : (
     <div className="show-wrapper">
-        <img className="show-image" src={show?.image?.medium} alt={show?.name} />
+        <img className="show-image" src={show?.image?.medium || "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/No_picture_available.png/602px-No_picture_available.png"} alt={show?.name} />
         <div className="show-content">
             <div className="title">
             <h1>{show?.name}</h1> <span className="show-rating">{show?.rating.average}</span>

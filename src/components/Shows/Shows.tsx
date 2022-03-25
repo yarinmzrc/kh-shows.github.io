@@ -31,7 +31,7 @@ export const Shows: FC<IShows> = ({shows}) => {
       {currentShows?.map((show: IShow) => {
         return (
           <div onClick={() => handleClick(show.id)} className="show-card" key={show.id}>
-              <img className="show-image" src={show?.image?.medium} alt={show.name} />
+              <img className="show-image" src={show?.image?.medium || "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/No_picture_available.png/602px-No_picture_available.png"} alt={show.name} />
             <div className="show-content">
               <div className="show-content-up">
               <p className="show-name">{show.name}</p>
